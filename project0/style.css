@@ -1,36 +1,42 @@
-#search {
+/*
+DISCLAIMER:
+The color palette has been extracted from inspecting Google's 
+webpages in dark mode
+*/
+
+#search-div {
     text-align: center;
     padding: 200px;
 }
 
-#query-search {
-    padding-left: 10px;
-    border-radius: 35px;
-    color: #bdc1c6;
-    height: 35px;
-    width: 500px;
+#search-box {
     background-color: transparent;
+    color: #bdc1c6;
+    min-height: 40px;
+    min-width: 500px;
+    padding-left: 10px;
     border: 1px solid #5f6368;
+    border-radius: 40px;
 }
 
-#query-search:hover {
-    border: none;
+#search-box:hover {
     background-color: #28292a;
+    border: none;
 }
 
 .query-btn {
-    background-color: transparent;
-    color: darkgrey;
-    border: none;
+    background-color: #303134;
+    color: #e8eaed;
+    border: 1px solid #303134;
+    border-radius: 4px;
     text-align: center;
-    width: 150px;
-    height: 35px;
+    margin: 10px;
+    min-width: 150px;
+    min-height: 35px;
 }
 
 .query-btn:hover {
-    border: 1px solid #5f6368;
-    border-radius: 5px;
-    color: #28292a;
+    border-color: #5f6368;
 }
 
 body {
@@ -82,27 +88,64 @@ body {
 .link-div {
     padding: 10px;
     text-align: right;
-    margin-top: 20px;
 }
 
 #advanced-table {
     text-align: left;
-    width: 1140px;
-    height: 210px;
-    color: #969ba1; 
+    min-width: 1140px;
+    min-height: 210px;
+    color: #969ba1;
 }
 
 .advanced-inputs {
-    width: 554px;
-    height: 25px;
+    min-width: 554px;
+    min-height: 25px;
     background-color: transparent;
     border: 1px solid #5f6368;
     padding: 1px 8px;
     font-size: 13px;
     color: #bdc1c6;
+    outline: none;
 }
 
 .advanced-inputs:focus {
     border-color: #8ab4f8;
     box-shadow: none;
+}
+
+.link {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.input-indicator-advanced {
+    font-size: 14px;
+}
+
+.description-advanced {
+    font-size: 12px;
+}
+
+#advanced-submit {
+    background-color: #8ab4f8;
+    color: #202124;
+    border-color: #8ab4f8;
+    text-align: center;
+    font-weight: bold;
+    min-height: 28px;
+    min-width: 120px;
+    margin-left: 500px;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+#advanced-submit:hover {
+    background-color: #aecbfa;
+    border-color: #aecbfa;
 }

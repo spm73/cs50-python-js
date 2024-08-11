@@ -7,41 +7,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="link-div typo">
-        <a href="index.html">Google Search</a>
-    </div>
-    <div class="separator typo">
-        <form action="https://www.google.com/search">
-            <table id="advanced-table">
-                <thead style="color: #e8eaed; font-weight: normal">
+    <div class="typo">
+        <div class="link-div">
+            <a class="link" href="index.html">Google Search</a>
+        </div>
+        <div>
+            <h1 class="separator" style="color: #bdc1c6">Google</h1>
+        </div>
+        <div class="separator">
+            <form action="https://www.google.com/search">
+                <table id="advanced-table">
+                    <thead style="color: #e8eaed; font-weight: normal">
+                        <tr>
+                            <th>Search pages with</th>
+                            <th></th>
+                            <th>Do the following in the search square</th>
+                        </tr>                    
+                    </thead>
                     <tr>
-                        <th>Search pages with</th>
-                        <th></th>
-                        <th>Do the following in the search square</th>
-                    </tr>                    
-                </thead>
-                <tr>
-                    <td>All these words:</td>
-                    <td><input type="text" name="as_q" class="advanced-inputs"></td>
-                    <td>Write the important words</td>
-                </tr>
-                <tr>
-                    <td>This exact word or phrase:</td>
-                    <td><input type="text" name="as_epq" class="advanced-inputs"></td>
-                    <td>Write the exact words with quotes</td>
-                </tr>
-                <tr>
-                    <td>Any of these words:</td>
-                    <td><input type="text" name="as_oq" class="advanced-inputs"></td>
-                    <td>Write OR between all the words needed</td>
-                </tr>
-                <tr>
-                    <td>None of these words:</td>
-                    <td><input type="text" name="as_eq" class="advanced-inputs"></td>
-                    <td>Add a minus sign before the words that you do not want to appear</td>
-                </tr>
-            </table>
-        </form>
+                        <td class="input-indicator-advanced">All these words:</td>
+                        <td><input type="text" name="as_q" class="advanced-inputs"></td>
+                        <td class="description-advanced">Write the important words</td>
+                    </tr>
+                    <tr>
+                        <td class="input-indicator-advanced">This exact word or phrase:</td>
+                        <td><input type="text" name="as_epq" class="advanced-inputs"></td>
+                        <td class="description-advanced">Write the exact words with quotes</td>
+                    </tr>
+                    <tr>
+                        <td class="input-indicator-advanced">Any of these words:</td>
+                        <td><input type="text" name="as_oq" class="advanced-inputs"></td>
+                        <td class="description-advanced">Write OR between all the words needed</td>
+                    </tr>
+                    <tr>
+                        <td class="input-indicator-advanced">None of these words:</td>
+                        <td><input type="text" name="as_eq" class="advanced-inputs"></td>
+                        <td class="description-advanced">Add a minus sign before the words that you do not want to appear</td>
+                    </tr>
+                </table>
+                <input id="advanced-submit" type="submit" value="Advanced search">
+            </form>
+        </div>
     </div>
 </body>
 </html>

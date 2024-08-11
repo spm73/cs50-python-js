@@ -7,27 +7,29 @@
     <title>Google</title>
 </head>
 <body>
-    <div class="link-div">
-        <a class="typo links" href="images.html">Google Images</a>
-        <a class="typo links" href="advanced.html">Advanced Search</a>
-    </div>
-    <div id="search">
-        <div class="typo">
-            <a class="google-text" id="g-oogle">G</a>
-            <a class="google-text" id="g-o-ogle">o</a>
-            <a class="google-text" id="go-o-gle">o</a>
-            <a class="google-text" id="goo-g-le">g</a>
-            <a class="google-text" id="goog-l-e">l</a>
-            <a class="google-text" id="googl-e">e</a>
+    <div class="typo">
+        <div class="link-div">
+            <a class="link" href="images.html">Google Images</a>
+            <a class="link" href="advanced.html">Advanced Search</a>
         </div>
-        <div class="separator">
-            <form action="https://www.google.com/search">
-                <input type="text" name="q" id="query-search">
-                <div style="padding: 30px;">
-                    <input class="query-btn typo" type="submit" value="Google Search">
-                    <input class="query-btn typo" type="submit" value="I'm feeling lucky">
-                </div>
-            </form>
+        <div id="search-div">
+            <div>
+                <a class="google-text" id="g-oogle">G</a>
+                <a class="google-text" id="g-o-ogle">o</a>
+                <a class="google-text" id="go-o-gle">o</a>
+                <a class="google-text" id="goo-g-le">g</a>
+                <a class="google-text" id="goog-l-e">l</a>
+                <a class="google-text" id="googl-e">e</a>
+            </div>
+            <div class="separator">
+                <form action="https://www.google.com/search">
+                    <input type="text" name="q" id="search-box" placeholder="Search...">
+                    <div class="separator">
+                        <input class="query-btn" type="submit" value="Google Search" name="btnK">
+                        <input class="query-btn" type="submit" value="I'm feeling lucky" name="btnI">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
