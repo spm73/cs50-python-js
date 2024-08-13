@@ -37,8 +37,10 @@ def search(request) -> HttpResponse:
     entry_title = request.POST["q"]
     if entry_title in util.list_entries():
         return redirect(reverse("encyclopedia:entry", args=[entry_title]))
+    elif not entry_title:
+        return redirect(reverse("encyclopedia:index"))
     else:
-        return render(request, 'encyclopedia/search_error.html', {
-            "entries": util.list_entries(),
-            "entry_title": entry_title
+        return render(request, "encyclopedia/search_error.html", {
+            "entry_title": entry_title,
+            "entries": [entry for entry in util.list_entries() if entry_title in entry]
         })
