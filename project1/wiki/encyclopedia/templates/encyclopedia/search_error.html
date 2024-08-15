@@ -1,15 +1,15 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block nav %}
-    <br><a class="alert alert-warning">'{{entry_title}}' does not exist.</a>
-
+    <br><a class="alert alert-warning">'{{ entry_title }}' does not exist.</a>
+ 
 {% endblock %}
 
 {% block body %}
     <h2>Suggestions</h2>
     <ul>
         {% for entry in entries %}
-            <li><a href="{% url 'encyclopedia:entry' entry %}">{{entry}}</a></li>
+            <li><a href="{% url 'encyclopedia:entry' entry %}">{{ entry }}</a></li>
         {% empty %}
             <a>No matches have been found</a>
         {% endfor %}

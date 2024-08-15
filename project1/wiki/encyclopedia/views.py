@@ -38,8 +38,7 @@ def new(request) -> HttpResponse:
             "entry": form["title"]
         })
     
-    with open(f'entries/{form["title"]}.md', 'w') as entry_file:
-        entry_file.write(form["content"])
+    util.save_entry(form["title"], form["content"])
     
     return redirect(reverse("encyclopedia:entry", args=[form["title"]]))
 
@@ -64,3 +63,16 @@ def search(request) -> HttpResponse:
             "entry_title": entry_title,
             "entries": [entry for entry in util.list_entries() if entry_title in entry]
         })
+        
+
+def edit(request, entry_name: str) -> HttpResponse:
+    if request.method != "POST":
+        return render(request, 'encyclopedia/edit.html', {
+            "old_content": util.get_entry(entry_name),
+            "title": entry_name
+        })
+    
+    form = request.POST
+    util.save_entry(entry_name, form["new_content"])
+    
+    return redirect(reverse('encyclopedia:entry', kwargs={"title": entry_name}))
