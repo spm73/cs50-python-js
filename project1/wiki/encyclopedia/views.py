@@ -16,13 +16,32 @@ def index(request) -> HttpResponse:
 def entry(request, title: str) -> HttpResponse:
     content = util.get_entry(title)
     if content is None:
-        return HttpResponseNotFound(f"There is no entry for {title}")
+        return render(request, 'encyclopedia/not_found.html', {
+            "title": title
+        })
     
-    return HttpResponse(Markdown().convert(content))
+    return render(request, 'encyclopedia/entry.html', {
+        "title": title,
+        "md_content": Markdown().convert(content)
+    })
 
 
 def new(request) -> HttpResponse:
-    return HttpResponse("Create a new page")
+    if request.method != 'POST':
+        return render(request, 'encyclopedia/new.html')
+    
+    form = request.POST
+    if not form["title"] and not form["content"]:
+        return redirect(reverse("encyclopedia:new"))
+    elif form["title"] in util.list_entries():
+        return render(request, "encyclopedia/new_error.html", {
+            "entry": form["title"]
+        })
+    
+    with open(f'entries/{form["title"]}.md', 'w') as entry_file:
+        entry_file.write(form["content"])
+    
+    return redirect(reverse("encyclopedia:entry", args=[form["title"]]))
 
 
 def random_page(request) -> HttpResponse:
@@ -35,6 +54,7 @@ def search(request) -> HttpResponse:
         return redirect(reverse("encyclopedia:index"))
         
     entry_title = request.POST["q"]
+    
     if entry_title in util.list_entries():
         return redirect(reverse("encyclopedia:entry", args=[entry_title]))
     elif not entry_title:
